@@ -268,6 +268,8 @@ impl DxcCompiler {
 
         let cls = Self::prep_include_handler(&self.library, include_handler);
         // dbg!(&cls);
+        // TODO: No query nor Deref on ClassAllocation/Class:
+        // https://github.com/microsoft/com-rs/commit/28b7601eecaafa2bd8f622114416433bc78b8bf2#diff-5db43c6c85fcc2114204a05a5afa7eb8b0120cd5a3d66da6dd4d340ffda396efL140-L157
         let handler_wrapper = cls.as_ref().map(|hnd| hnd.query().unwrap());
         // dbg!(&cls);
         dbg!(&handler_wrapper);
